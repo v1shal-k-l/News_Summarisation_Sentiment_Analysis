@@ -48,21 +48,16 @@ def analyze_company_news(company):
     # Perform comparative sentiment analysis
     analysis_result = comparative_sentiment_analysis(company, articles_data)
 
-    # ✅ Generate a summary speech for the entire report
+    # Generate a summary speech for the entire report
     final_summary = f"{company}’s latest news coverage is mostly {analysis_result['Final Sentiment Analysis']}."
     audio_file = text_to_speech(final_summary)  # Generate TTS
 
-    # ✅ Construct final JSON output
+    # Construct final JSON output
     output = {
         "Company": company,
         "Articles": articles_data,
         "Comparative Sentiment Score": analysis_result,
-        "Audio": f"[Play {audio_file}]"  # ✅ Include a playable reference
+        "Audio": f"[Play {audio_file}]"  #  Include a playable reference
     }
 
     return output
-
-# if __name__ == "__main__":
-#     company = input("Enter the company name for analysis: ").strip()
-#     result = analyze_company_news(company)
-#     print(json.dumps(result, indent=4, ensure_ascii=False))
