@@ -6,7 +6,7 @@ import os
 # NewsAPI Key
 NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 
-def extract_news(company, num_articles=2):
+def extract_news(company, num_articles=15):
     """Fetch multiple news articles from NewsAPI and return titles and contents."""
     url = f"https://newsapi.org/v2/everything?q={company}&apiKey={NEWS_API_KEY}&language=en&pageSize={num_articles}"
     response = requests.get(url)
